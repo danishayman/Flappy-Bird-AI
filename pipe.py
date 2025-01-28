@@ -1,10 +1,9 @@
-from variables import  PIPE_IMG
+from variables import  PIPE_IMG, VEL
 import pygame
 import random
 
 class Pipe:
     GAP = 200
-    VEL = 3
     
     def __init__(self, x):
         self.x = x
@@ -24,7 +23,7 @@ class Pipe:
         self.bottom = self.height + self.GAP
         
     def move(self):
-        self.x -= self.VEL
+        self.x -= VEL
         
     def draw(self, win):
         win.blit(self.PIPE_TOP, (self.x, self.top))

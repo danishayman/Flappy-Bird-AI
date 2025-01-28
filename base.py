@@ -1,7 +1,6 @@
-from variables import BASE_IMG
+from variables import BASE_IMG, VEL
 
 class Base:
-    VEL = 5
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
     
@@ -11,8 +10,8 @@ class Base:
         self.x2 = self.WIDTH
         
     def move(self):
-        self.x1 -= self.VEL
-        self.x2 -= self.VEL
+        self.x1 -= VEL
+        self.x2 -= VEL
         
         if self.x1 + self.WIDTH < 0:
             self.x1 = self.x2 + self.WIDTH
