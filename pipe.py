@@ -7,7 +7,7 @@ import random
 
 class Pipe:
     GAP = 200
-    VEL = 5
+    VEL = 3
     
     def __init__(self, x):
         self.x = x
