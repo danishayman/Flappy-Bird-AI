@@ -11,22 +11,17 @@ class Control:
         self.base = base
         self.score = score
         self.game_over = False
-        self.game_started = False  # New state flag
 
-    def handle_start_events(self):
+    def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-            
-            # Handle both button click and spacebar to start
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if self.check_button_click(pygame.mouse.get_pos()):
-                    self.game_started = True
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN and not self.game_over:
                 if event.key == pygame.K_SPACE:
-                    self.game_started = True
-        return self.game_started
+                    self.bird.jump()
+            if event.type == pygame.MOUSEBUTTONDOWN and not self.game_over:
+                self.bird.jump()
 
     def check_button_click(self, mouse_pos):
         # Button dimensions and position

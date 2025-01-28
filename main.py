@@ -1,4 +1,6 @@
 import pygame
+pygame.font.init()
+
 from bird import Bird
 from pipe import Pipe
 from base import Base
@@ -55,10 +57,6 @@ def main():
         clock.tick(30)
         
         controller.handle_events()
-        game_over = controller.update_game_state()
-        
-        if game_over:
-            run = False
         
         draw_window(win, bird, pipes, base, controller.score)
     
