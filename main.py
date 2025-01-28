@@ -1,8 +1,9 @@
 import pygame
+pygame.font.init()
 from bird import Bird
 from pipe import Pipe
 from base import Base
-from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG
+from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG, STAT_FONT
 
 
 
@@ -12,6 +13,9 @@ def draw_window(win, bird, pipes, base, score):
     
     for pipe in pipes:
         pipe.draw(win)
+        
+    text = STAT_FONT.render("Score: " + str(score), 1, (255,255,255))
+    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
         
     base.draw(win)
     bird.draw(win)
@@ -27,6 +31,7 @@ def main():
     pipes = [Pipe(600)]
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
     clock = pygame.time.Clock()
+    score = 0
     
     run = True
     while run:
@@ -64,7 +69,7 @@ def main():
             pass
         
         base.move()
-        draw_window(win, bird, pipes, base)
+        draw_window(win, bird, pipes, base, score)
 
 
 
