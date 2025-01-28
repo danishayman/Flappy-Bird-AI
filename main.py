@@ -7,7 +7,7 @@ from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_I
 
 
 
-def draw_window(win, bird, pipes, base):
+def draw_window(win, bird, pipes, base, score):
     win.blit(BG_IMG, (0, 0))
     
     for pipe in pipes:
@@ -54,7 +54,7 @@ def main():
             pipe.move()
             
         if add_pipe:
-            # score += 1
+            score += 1
             pipes.append(Pipe(600))
             
         for r in remove:
