@@ -1,8 +1,5 @@
-from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG
-import pygame 
-import neat
-import time
-import os
+from variables import  PIPE_IMG
+import pygame
 import random
 
 class Pipe:

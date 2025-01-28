@@ -3,7 +3,7 @@ pygame.font.init()
 from bird import Bird
 from pipe import Pipe
 from base import Base
-from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG, STAT_FONT
+from variables import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT
 
 
 
@@ -20,6 +20,7 @@ def draw_window(win, bird, pipes, base, score):
     base.draw(win)
     bird.draw(win)
     pygame.display.update()
+
 
 
 
