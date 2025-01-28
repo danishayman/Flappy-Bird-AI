@@ -1,10 +1,10 @@
 import pygame
-pygame.font.init()
 from bird import Bird
 from pipe import Pipe
 from base import Base
 from variables import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT
 from control import Control
+from menu import Menu
 
 def draw_window(win, bird, pipes, base, score):
     win.blit(BG_IMG, (0, 0))
@@ -25,10 +25,31 @@ def main():
     pipes = [Pipe(600)]
     score = 0
     controller = Control(bird, pipes, base, score)
+    menu = Menu()
     
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
     clock = pygame.time.Clock()
     
+    # Start screen loop
+    start_game = False
+    while not start_game:
+        clock.tick(30)
+        events = pygame.event.get()
+        
+        # Handle quit events
+        for event in events:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        
+        # Check for start condition
+        start_game = Menu.check_start_trigger(events)
+        
+        # Draw menu
+        menu.draw_start_screen(win)
+        pygame.display.update()
+
+    # Main game loop
     run = True
     while run:
         clock.tick(30)
@@ -37,7 +58,6 @@ def main():
         game_over = controller.update_game_state()
         
         if game_over:
-            # Optional: Add game over screen or delay before quitting
             run = False
         
         draw_window(win, bird, pipes, base, controller.score)
