@@ -55,9 +55,8 @@ def main():
     run = True
     while run:
         clock.tick(30)
-        
+
         controller.handle_events()
-        
         draw_window(win, bird, pipes, base, controller.score)
     
     pygame.quit()
