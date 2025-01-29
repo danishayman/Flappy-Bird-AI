@@ -6,6 +6,8 @@ Train an AI to master Flappy Bird using the NEAT (NeuroEvolution of Augmenting T
 
 This project implements an AI that learns to play Flappy Bird using NEAT, a genetic algorithm that evolves neural networks. The AI starts with no knowledge of the game and gradually learns optimal strategies through natural selection and evolution.
 
+![alt text](imgs/image.png)
+
 ### 🌟 Features
 
 - Neural network-controlled birds
