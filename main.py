@@ -6,9 +6,9 @@ pygame.font.init()
 from bird import Bird
 from pipe import Pipe
 from base import Base
-from variables import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT
+from variables import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT, GEN
 
-def draw_window(win, birds, pipes, base, score):
+def draw_window(win, birds, pipes, base, score, gen):
     """
     Draw all game elements on the window
     """
@@ -23,6 +23,11 @@ def draw_window(win, birds, pipes, base, score):
     text = STAT_FONT.render("Score: " + str(score), 1, (255,255,255))
     win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
     
+    # Draw Generation    
+    text = STAT_FONT.render("Gen: " + str(gen), 1, (255,255,255))
+    win.blit(text, (10, 10))
+    
+    
     # Draw base and birds    
     base.draw(win)
     for bird in birds:
@@ -34,10 +39,13 @@ def main(genomes, config):
     """
     Main game loop function for NEAT training
     """
+    global GEN
+    GEN += 1
     # Initialize lists to track neural networks, genomes, and birds
     nets = []
     ge = []
     birds = []
+
     
     # Create neural network for each genome
     for _, g in genomes:
@@ -132,7 +140,7 @@ def main(genomes, config):
             
         # Update base position and draw everything
         base.move()
-        draw_window(win, birds, pipes, base, score)
+        draw_window(win, birds, pipes, base, score, GEN)
     
 def run(config_path):
     """
