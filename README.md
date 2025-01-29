@@ -27,7 +27,7 @@ This project implements an AI that learns to play Flappy Bird using NEAT, a gene
 1. Clone the repository:
 ```bash
 git clone https://github.com/danishayman/Flappy-Bird-AI.git
-cd Flappy-Bird-Ai
+cd Flappy-Bird-AI
 ```
 
 2. Install dependencies:
