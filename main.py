@@ -4,9 +4,16 @@ pygame.font.init()
 from bird import Bird
 from pipe import Pipe
 from base import Base
+<<<<<<< HEAD
 from variables import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT
 from control import Control
 from menu import Menu
+=======
+from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG, STAT_FONT
+
+
+
+>>>>>>> parent of 3e36bfd (Refactor imports in bird.py, main.py, and pipe.py to remove unused variables)
 
 def draw_window(win, bird, pipes, base, score):
     win.blit(BG_IMG, (0, 0))
@@ -21,6 +28,13 @@ def draw_window(win, bird, pipes, base, score):
     bird.draw(win)
     pygame.display.update()
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> parent of 3e36bfd (Refactor imports in bird.py, main.py, and pipe.py to remove unused variables)
 def main():
     bird = Bird(230, 350)
     base = Base(730)

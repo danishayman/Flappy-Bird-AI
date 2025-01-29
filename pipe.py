@@ -1,4 +1,4 @@
-from variables import  PIPE_IMG, VEL
+from variables import  PIPE_IMG
 import pygame
 import random
 

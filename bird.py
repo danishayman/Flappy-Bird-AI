@@ -1,5 +1,10 @@
-from variables import BIRD_IMGS
+from pipe import Pipe
+from variables import WIN_WIDTH, WIN_HEIGHT, BIRD_IMGS, PIPE_IMG, BASE_IMG, BG_IMG
 import pygame 
+import neat
+import time
+import os
+import random
 
 class Bird:
     IMGS = BIRD_IMGS
